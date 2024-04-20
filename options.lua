@@ -22,7 +22,6 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
-
-
+vim.treesitter.language.register("glsl", { "vert", "frag", "geom", "comp" })
 
 

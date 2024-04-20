@@ -13,6 +13,7 @@ local plugins = {
     opts = {
       ensure_installed = {
         "clangd",
+        "glsl-analyzer",
         "jdtls",
         "html-lsp",
         "css-lsp",
@@ -20,8 +21,11 @@ local plugins = {
         "wgsl-analyzer",
         "tailwind-css-language-server",
         "rust-analyzer",
-        "glsl-analyzer",
         "lua-language-server",
+        "ocamlformat",
+        "marksman",
+        "glow",
+        "ltex-ls",
       },
     },
   },
@@ -70,7 +74,7 @@ local plugins = {
   {
     "vim-scripts/cup.vim",
     lazy = false,
-  }
+  },
 }
 
 autocmd = vim.api.nvim_create_autocmd
