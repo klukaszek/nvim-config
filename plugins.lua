@@ -1,4 +1,5 @@
 require("custom.mappings")
+require("custom.options")
 
 local plugins = {
   {
