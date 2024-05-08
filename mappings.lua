@@ -14,7 +14,7 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
 -- Delete entire token that cursor is above in insert mode
-vim.keymap.set('i', '<C-w>', 'X<Esc>bce', { noremap = true, silent = true })
+vim.keymap.set('i', '<C-w>', '<Esc>bce', { noremap = true, silent = true })
 
 -- When using d to delete, we do not copy what was deleted
 vim.keymap.set('n', '<leader>d', "\"_d", { desc = "Delete don't copy" })
