@@ -29,11 +29,21 @@ for _, lsp in ipairs(servers) do
                     "--offset-encoding=utf-16",
                 },
             }
-        else
-            lspconfig[lsp].setup {
+        end
+    elseif lsp == "wgsl_analyzer" then
+        if vim.fn.executable("wgsl_analyzer") == 1 then
+            lspconfig.wgsl_analyzer.setup {
                 on_attach = on_attach,
                 capabilities = capabilities,
+                cmd = {
+                    vim.fn.expand("$HOME") .. "/.cargo/bin/wgsl_analyzer",
+                },
             }
         end
+    else
+        lspconfig[lsp].setup {
+            on_attach = on_attach,
+            capabilities = capabilities,
+        }
     end
 end
