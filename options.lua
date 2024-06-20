@@ -1,3 +1,10 @@
+require "nvchad.options"
+
+-- add yours here!
+
+-- local o = vim.o
+-- o.cursorlineopt ='both' -- to enable cursorline!
+--
 -- Make sure to have 4 tab width
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4

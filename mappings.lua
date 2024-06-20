@@ -1,3 +1,13 @@
+require "nvchad.mappings"
+
+-- add yours here
+
+local map = vim.keymap.set
+
+map("n", ";", ":", { desc = "CMD enter command mode" })
+map("i", "jk", "<ESC>")
+
+-- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 -- Move selected line up or down and in between braces
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -34,12 +44,10 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
 -- Replace all occurences of current word
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
-    { desc = "Replace all occurences of token" })
+  { desc = "Replace all occurences of token" })
 
 vim.keymap.set("v", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
-    { desc = "Replace all occurences of token" })
-
-
+  { desc = "Replace all occurences of token" })
 
 -- Grant executable permissions to current file
 vim.keymap.set("n", "<leader>rr", "<cmd>!chmod +x %<CR>", { silent = true, desc = "Grant exec permissions" })
