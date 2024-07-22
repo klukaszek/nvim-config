@@ -11,13 +11,13 @@ local plugins = {
         opts = {
             ensure_installed = {
                 "clangd",
-                "glsl-analyzer",
+                "glsl_analyzer",
                 "jdtls",
                 "html-lsp",
                 "css-lsp",
                 "typescript-language-server",
                 "wgsl-analyzer",
-                "tailwind-css-language-server",
+                "tailwindcss-language-server",
                 "rust-analyzer",
                 "lua-language-server",
                 "ocamlformat",
