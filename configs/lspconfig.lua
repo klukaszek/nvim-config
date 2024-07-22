@@ -15,6 +15,17 @@ for _, lsp in ipairs(servers) do
     }
 end
 
+-- swift sourcekit-lsp
+lspconfig.sourcekit.setup {
+    capabilities = {
+        workspace = {
+            didChangeWatchedFiles = {
+                dynamicRegistration = true,
+            }
+        }
+    }
+}
+
 -- typescript
 lspconfig.tsserver.setup {
     on_attach = on_attach,
