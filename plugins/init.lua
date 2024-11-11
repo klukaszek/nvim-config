@@ -11,7 +11,6 @@ local plugins = {
         opts = {
             ensure_installed = {
                 "clangd",
-                "glsl_analyzer",
                 "jdtls",
                 "html-lsp",
                 "css-lsp",
@@ -20,8 +19,9 @@ local plugins = {
                 "tailwindcss-language-server",
                 "rust-analyzer",
                 "lua-language-server",
-                "ocamlformat",
                 "marksman",
+                "python-lsp-server",
+                "pylint",
                 "glow",
                 "ltex-ls",
             },
@@ -74,25 +74,13 @@ local plugins = {
         "vim-scripts/cup.vim",
         lazy = false,
     },
+    {
+        "meanderingprogrammer/render-markdown.nvim",
+        lazy = true,
+        config = function()
+            require('render-markdown').setup({})
+        end,
+    }
 }
-
-autocmd = vim.api.nvim_create_autocmd
-opt = vim.opt
-
--- Set syntax highlighting for wgsl files
-autocmd({ "BufNewFile", "BufRead" }, {
-    pattern = "*.wgsl",
-    callback = function()
-        opt.filetype = "wgsl"
-    end,
-})
-
--- Set syntax highlighting for cup and flex files
-autocmd("BufRead", {
-    pattern = { "*.cup", "*.flex" },
-    callback = function()
-        opt.filetype = "cup"
-    end,
-})
 
 return plugins
