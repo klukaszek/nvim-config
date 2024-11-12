@@ -76,11 +76,59 @@ local plugins = {
     },
     {
         "meanderingprogrammer/render-markdown.nvim",
-        lazy = true,
+        lazy = false,
         config = function()
             require('render-markdown').setup({})
         end,
     }
+}
+
+-- Treesitter Setup for my commonly used languages
+require('nvim-treesitter.configs').setup {
+  -- A list of parser names, or "all" (supported parsers can be found here: 
+  -- https://github.com/nvim-treesitter/nvim-treesitter#supported-languages)
+  ensure_installed = {
+    "markdown",
+    "markdown_inline",
+    "latex",
+    "lua",
+    "vim",
+    "javascript",
+    "typescript",
+    "python",
+    "c",
+    "cpp",
+    "java",
+    "html",
+    "css",
+    "json",
+    "yaml",
+    "rust",
+    "bash",
+    "wgsl",
+    "glsl",
+    "hlsl",
+    "slang",
+    "sql"
+    -- Add any other languages you commonly use
+  },
+
+  -- Install parsers synchronously (only applied to `ensure_installed`)
+  sync_install = false,
+
+  -- Automatically install missing parsers when entering buffer
+  auto_install = true,
+
+  highlight = {
+    enable = true,
+    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+    additional_vim_regex_highlighting = true,
+  },
+
+  indent = {
+    enable = true
+  },
 }
 
 return plugins
