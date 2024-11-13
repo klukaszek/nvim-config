@@ -89,57 +89,48 @@ local plugins = {
       }
     end,
   },
-}
-
--- import treesitter.parsers
-local parsers = require "nvim-treesitter.parsers"
-
--- if parsers basic parsers are installed, skip the treesitter setup
--- for whatever reason, treesitter keeps trying to install parsers even if they are already installed
-if parsers.get_parser_configs().bash then
-  if parsers.get_parser_configs().c then
-    if parsers.get_parser_configs().python then
-      if parsers.get_parser_configs().lua then
-        return plugins
-      end
-    end
-  end
-end
-
--- Treesitter Setup for my commonly used languages
-require("nvim-treesitter.configs").setup {
-  ensure_installed = {
-    "markdown",
-    "markdown_inline",
-    "latex",
-    "lua",
-    "vim",
-    "javascript",
-    "typescript",
-    "python",
-    "c",
-    "cpp",
-    "java",
-    "html",
-    "css",
-    "json",
-    "yaml",
-    "rust",
-    "bash",
-    "wgsl",
-    "glsl",
-    "hlsl",
-    "slang",
-    "sql",
-  },
-  sync_install = false,
-  auto_install = true,
-  highlight = {
-    enable = true,
-    additional_vim_regex_highlighting = true,
-  },
-  indent = {
-    enable = true,
+  {
+    "nvim-treesitter/nvim-treesitter",
+    event = "BufRead",
+    config = function()
+      -- Treesitter Setup for my commonly used languages
+      require("nvim-treesitter.configs").setup {
+        ensure_installed = {
+          "markdown",
+          "markdown_inline",
+          "latex",
+          "lua",
+          "vim",
+          "javascript",
+          "typescript",
+          "python",
+          "c",
+          "cpp",
+          "java",
+          "html",
+          "css",
+          "json",
+          "yaml",
+          "rust",
+          "bash",
+          "wgsl",
+          "glsl",
+          "hlsl",
+          "slang",
+          "sql",
+        },
+        sync_install = false,
+        auto_install = true,
+        highlight = {
+          enable = true,
+          additional_vim_regex_highlighting = true,
+        },
+        indent = {
+          enable = true,
+        },
+      }
+    end,
   },
 }
+
 return plugins
