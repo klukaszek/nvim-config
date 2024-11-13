@@ -80,21 +80,30 @@ local plugins = {
       require("render-markdown").setup {}
     end,
   },
+  {
+    "edluffy/hologram.nvim",
+    lazy = false,
+    config = function()
+      require("hologram").setup {
+        auto_display = true,
+      }
+    end,
+  },
 }
 
 -- import treesitter.parsers
-local parsers = require("nvim-treesitter.parsers")
+local parsers = require "nvim-treesitter.parsers"
 
 -- if parsers basic parsers are installed, skip the treesitter setup
 -- for whatever reason, treesitter keeps trying to install parsers even if they are already installed
 if parsers.get_parser_configs().bash then
-    if parsers.get_parser_configs().c then
-        if parsers.get_parser_configs().python then
-            if parsers.get_parser_configs().lua then
-                return plugins
-            end
-        end
+  if parsers.get_parser_configs().c then
+    if parsers.get_parser_configs().python then
+      if parsers.get_parser_configs().lua then
+        return plugins
+      end
     end
+  end
 end
 
 -- Treesitter Setup for my commonly used languages
