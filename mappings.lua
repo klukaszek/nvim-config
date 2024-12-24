@@ -51,3 +51,7 @@ vim.keymap.set("v", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 
 -- Grant executable permissions to current file
 vim.keymap.set("n", "<leader>rr", "<cmd>!chmod +x %<CR>", { silent = true, desc = "Grant exec permissions" })
+
+-- Map Ctrl + j and Ctrl + k for window navigation
+vim.keymap.set("n", "<C-k>", "<C-w>j", { desc = "Move to window above" })
+vim.keymap.set("n", "<C-j>", "<C-w>k", { desc = "Move to window below" })

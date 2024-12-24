@@ -14,11 +14,35 @@ autocmd({ "BufNewFile", "BufRead" }, {
   end,
 })
 
+-- set syntax highlighting for hlsl files
+autocmd({ "BufNewFile", "BufRead" }, {
+  pattern = "*.hlsl",
+  callback = function()
+    opt.filetype = "hlsl"
+  end,
+})
+
+-- Set syntax highlighting for zig files
+autocmd({ "BufNewFile", "BufRead" }, {
+  pattern = "*.zig",
+  callback = function()
+    opt.filetype = "zig"
+  end,
+})
+
 -- Set syntax highlighting for cup and flex files
 autocmd("BufRead", {
   pattern = { "*.cup", "*.flex" },
   callback = function()
     opt.filetype = "cup"
+  end,
+})
+
+-- Set syntax highlighting for zig files
+autocmd("BufRead", {
+  pattern = "*.zig",
+  callback = function()
+    opt.filetype = "zig"
   end,
 })
 
@@ -38,6 +62,7 @@ local servers = {
   "marksman",
   "ltex",
   "pylsp",
+  "zls",
 }
 
 for _, lsp in ipairs(servers) do
@@ -67,3 +92,17 @@ lspconfig.ts_ls.setup {
 }
 
 lspconfig.wgsl_analyzer.setup {}
+
+lspconfig.zls.setup {
+    on_attach = on_attach,
+    on_init = on_init,
+    capabilities = capabilities,
+
+    cmd = { "zls" },
+
+    settings = {
+        zls = {
+            zig_exe_path = "/home/kyle/zig/zig"
+        }
+    }
+}

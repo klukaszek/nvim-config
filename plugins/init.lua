@@ -44,6 +44,8 @@ local plugins = {
           ["*.flex"] = true,
           ["*.cup"] = true,
           ["*.wgsl"] = true,
+          ["*.hlsl"] = true,
+          ["*.zig"] = true,
         },
         panel = {
           enabled = true,
@@ -129,6 +131,13 @@ local plugins = {
           enable = true,
         },
       }
+    end,
+  },
+  {
+    "ziglang/zig.vim",
+    config = function()
+      vim.g.zim_fmt_parse_errprs = 0
+      vim.g.zig_fmt_autosave = 0
     end,
   },
 }
